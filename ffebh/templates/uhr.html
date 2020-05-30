@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+function ticken(){
+  var stunden, minuten, sekunden;
+  var StundenZahl, MinutenZahl, SekundenZahl;
+  var heute;
+ 
+  heute = new Date();
+  StundenZahl = heute.getHours();
+  MinutenZahl = heute.getMinutes();
+  SekundenZahl = heute.getSeconds();
+ 
+  stunden = StundenZahl+":";
+  if (MinutenZahl < 10) {minuten = "0" + MinutenZahl + ":";}
+    else {minuten = MinutenZahl + ":";}
+  if (SekundenZahl < 10) {sekunden = "0" + SekundenZahl + " ";}
+    else {sekunden = SekundenZahl + " ";}
+  zeit = stunden + minuten + sekunden + " Uhr";
+  uhr.innerHTML = zeit;
+ 
+  window.setTimeout("ticken();", 1000);
+}
+ 
+window.onload = ticken;
+</script>
+<style>
+body {
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+</style>
+</head>
+<body>
+<center>
+<div id="uhr" style="font-size:1000%;"></div>
+</center>
+</body>
+</html>
